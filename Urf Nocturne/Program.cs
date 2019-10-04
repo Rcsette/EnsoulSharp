@@ -98,17 +98,18 @@
         }
          private static void DrawingOnOnDraw(EventArgs args)
         {
-            if (MainMenu["draw"]["drawQ"].GetValue<MenuBool>().Enabled)
-
-                Render.Circle.DrawCircle(ObjectManager.Player.Position, Q.Range, System.Drawing.Color.Green);
-
-            if (MainMenu["draw"]["drawE"].GetValue<MenuBool>().Enabled)
-
-                Render.Circle.DrawCircle(ObjectManager.Player.Position, E.Range, System.Drawing.Color.Green);
-
-            if (MainMenu["draw"]["drawR"].GetValue<MenuBool>().Enabled)
-
-                Render.Circle.DrawCircle(ObjectManager.Player.Position, R.Range, System.Drawing.Color.Green);
+            if (MainMenu["Draw"].GetValue<MenuBool>("drawQ").Enabled)
+            {
+                Render.Circle.DrawCircle(ObjectManager.Player.Position, Q.Range, Color.FromArgb(150, Color.DodgerBlue));
+            }  
+          if (MainMenu["Draw"].GetValue<MenuBool>("DrawE").Enabled) 
+             {   
+		Render.Circle.DrawCircle(ObjectManager.Player.Position, E.Range, Color.FromArgb(150, Color.DodgerBlue));
+              }  
+          if (MainMenu["Draw"].GetValue<MenuBool>("drawR").Enabled) 
+              {  
+		Render.Circle.DrawCircle(ObjectManager.Player.Position, R.Range, olor.FromArgb(150, Color.DodgerBlue));
+               } 
         }
 
 
@@ -237,14 +238,10 @@
                 }
                     
             }
-		    if (MainMenu["Clear"]["clearE"].GetValue<MenuBool>().Enabled && E.IsReady())
-            {
-
-                if (eminions.Any())
-                {
-                    E.Cast();
-                } 
-            }
+		 if (MainMenu["Clear"]["clearE"].GetValue<MenuBool>().Enabled && E.IsReady())
+                 {
+                    E.Cast(qminions.First(), true);
+                 }
 
         }
 
@@ -271,13 +268,12 @@
                 }
             if (MainMenu["JClear"]["jclearE"].GetValue<MenuBool>().Enabled && E.IsReady())
             {
-                if (emobs.Any())
-                {
+                foreach (var mob in emobs)
                     if (efarm.MinionsHit >= 1 || emobs.Any(x => x.GetJungleType() != JungleType.Small) && efarm.MinionsHit >= 1)
                     {
-                        E.Cast();
+                        E.Cast(mob);
                     }
-                }
+                
             }
         }
     
