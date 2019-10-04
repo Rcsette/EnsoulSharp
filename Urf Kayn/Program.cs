@@ -47,7 +47,7 @@
 
             R = new Spell(SpellSlot.R, 650f);
 	
-	    Q.SetSkillshot(0.4f, 40f, float.MaxValue, false, false, SkillshotType.Line);
+	    Q.SetSkillshot(0.25f, 50f, float.MaxValue, false, false, SkillshotType.Line);
  	    W.SetSkillshot(0.5f, 90f, 2500, false, false, SkillshotType.Line);
  
             MainMenu = new Menu("URF Kayn", "URF Kayn", true);
@@ -56,7 +56,10 @@
             var comboMenu = new Menu("Combo", "Combo Config");
             comboMenu.Add(new MenuBool("comboQ", "Use Q", true));
             comboMenu.Add(new MenuBool("comboW", "Use W", true));
+            comboMenu.Add(new MenuBool("comboE", "Use E", true));
             comboMenu.Add(new MenuBool("comboR", "Use R", true));
+            comboMenu.Add(new MenuSlider("MHR", "My HP Use [R] <=", 15));
+            comboMenu.Add(new MenuSlider("EHR", "Enemy HP Use [R] <=", 15));
             MainMenu.Add(comboMenu);
 
 	    var harassMenu = new Menu("Harass", "Harass Config");
