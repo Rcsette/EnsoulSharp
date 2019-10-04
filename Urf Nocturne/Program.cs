@@ -108,7 +108,7 @@
               }  
           if (MainMenu["Draw"].GetValue<MenuBool>("drawR").Enabled) 
               {  
-		Render.Circle.DrawCircle(ObjectManager.Player.Position, R.Range, olor.FromArgb(150, Color.DodgerBlue));
+		Render.Circle.DrawCircle(ObjectManager.Player.Position, R.Range, Color.FromArgb(150, Color.DodgerBlue));
                } 
         }
 
