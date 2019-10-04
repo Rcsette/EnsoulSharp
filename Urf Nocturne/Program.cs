@@ -161,7 +161,7 @@
             }
 
 
-            if (MainMenu["Combo"]["comboR"].GetValue<MenuBool>().Enabled && R.IsReady() && ObjectManager.Player.CountEnemyHeroesInRange(750) >= 1)
+            if (MainMenu["Combo"]["comboR"].GetValue<MenuBool>().Enabled && R.IsReady() && ObjectManager.Player.CountEnemyHeroesInRange(R.Range) >= 1)
             {
                 AIHeroClient target = TargetSelector.GetTarget(R.Range, DamageType.Physical);
                 
