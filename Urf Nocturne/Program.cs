@@ -6,6 +6,7 @@
     using EnsoulSharp.SDK;
     using EnsoulSharp.SDK.MenuUI;
     using EnsoulSharp.SDK.MenuUI.Values;
+    using EnsoulSharp.SDK.Events;
     using EnsoulSharp.SDK.Utility;
     using EnsoulSharp.SDK.Prediction;
     using Color = System.Drawing.Color;
@@ -93,7 +94,7 @@
 
         private static void CreateEvents()
         {
-            Game.OnUpdate += OnUpdate;
+            Tick.OnTick += OnUpdate;
             Drawing.OnDraw += DrawingOnOnDraw;
         }
          private static void DrawingOnOnDraw(EventArgs args)
